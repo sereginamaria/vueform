@@ -19,12 +19,7 @@
           <div class="form-group">
             <label for="namee">Имя</label>
             <input  @blur="$v.formReg.namee.$touch()"
-                    :class="{'is-invalid': $v.formReg.namee.$error}"
                     v-model="formReg.namee" type="text" class="form-control" id="namee">
-
-            <div v-if="!$v.formReg.namee.required" class="invalid-feedback">
-              {{reqText}}
-            </div>
 
           </div>
 
