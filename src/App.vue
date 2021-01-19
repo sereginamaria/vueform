@@ -17,6 +17,19 @@
           </div>
 
           <div class="form-group">
+            <label for="namee">Имя</label>
+            <input  @blur="$v.formReg.namee.$touch()"
+                    :class="{'is-invalid': $v.formReg.namee.$error}"
+                    v-model="formReg.namee" type="text" class="form-control" id="namee">
+
+            <div v-if="!$v.formReg.namee.required" class="invalid-feedback">
+              {{reqText}}
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
             <label for="surname">Фамилия</label>
             <input v-model="formReg.surname" type="text" class="form-control" id="surname">
           </div>
@@ -84,6 +97,7 @@ export default {
     return {
       reqText: 'Поле обязательно для заполнения',
       formReg: {
+        namee: "",
         name: "",
         surname: "",
         email: "",
